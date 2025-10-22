@@ -119,6 +119,9 @@
                         <a class="nav-link" href="service.html">Services</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="my-bookings.html">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="blog.html">Blogs</a>
                     </li>
                     <li class="nav-item">
@@ -232,7 +235,7 @@
                 <div class="col-6 col-md-2 mb-3">
                     <h5>MOVEMENT</h5>
                     <ul class="nav flex-column">
-                        <li class=" mb-2"><a href="#" class="nav-link p-0 text-muted">What Heritage Bangladesh</a></li>
+                        <li class=" mb-2"><a href="#" class="nav-link p-0 text-muted">What BDTrip</a></li>
                         <li class=" mb-2"><a href="#" class="nav-link p-0 text-muted">Support Us</a></li>
 
                     </ul>
@@ -241,7 +244,7 @@
                 <div class="col-6 col-md-2 mb-3">
                     <h5>COMPANY</h5>
                     <ul class="nav flex-column">
-                        <li class=" mb-2"><a href="#" class="nav-link p-0 text-muted">Why Heritage Bangladesh</a></li>
+                        <li class=" mb-2"><a href="#" class="nav-link p-0 text-muted">Why BDTrip</a></li>
                         <li class=" mb-2"><a href="#" class="nav-link p-0 text-muted">Capital</a></li>
                         <li class=" mb-2"><a href="#" class="nav-link p-0 text-muted">Security</a></li>
 
@@ -268,7 +271,7 @@
 
                 <div class="col-md-12 ">
                     <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-                        <p>© 2023 Heritage Bangladesh, All rights reserved.</p>
+                        <p>© 2025 BDTrip, All rights reserved.</p>
                         <p>Terms & Agreements &nbsp;&nbsp; Privacy & Policy</p>
                     </div>
                 </div>
@@ -285,5 +288,18 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js">
 </script>
 <script src="userLoginReg/logstatus.js"></script>
+<script>
+    // Update book button based on login status
+    document.addEventListener('DOMContentLoaded', function() {
+        const loginstatus = JSON.parse(localStorage.getItem("logStatus"));
+        const bookBtn = document.getElementById('bookBtn');
+        
+        if (!loginstatus || loginstatus !== true) {
+            bookBtn.innerHTML = '<i class="fas fa-lock"></i> Login to Book';
+            bookBtn.style.backgroundColor = '#6c757d';
+            bookBtn.style.cursor = 'pointer';
+        }
+    });
+</script>
 
 </html>

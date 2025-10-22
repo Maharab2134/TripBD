@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-
-
-
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,321 +8,575 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Righteous&family=Tilt+Prism&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Righteous&family=Tilt+Prism&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/index.css">
-    <title>Heritage Bangladesh | Services</title>
+    <title>BDTrip | Services</title>
     <style>
+        :root {
+            --primary-color: #e37b21;
+            --primary-dark: #c8691c;
+            --primary-light: #f8a654;
+            --dark-color: #333;
+            --light-color: #f9f9f9;
+            --gray-color: #828282;
+            --transition: all 0.3s ease;
+        }
+
         body {
-            background-color: rgb(255, 255, 255);
+            background-color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
             width: 100%;
         }
-        
-        .box1 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            /* align-items: center; */
-            /* row-gap: 50px; */
-            gap: 30px;
-            place-items: center;
-            margin-top: 120px;
-            width: 100%;
-        }
-        
-        .div1 {
-            height: 400px;
-            width: 350px;
-            margin-left: 30px;
-            margin-right: 30px;
-            background-color: aqua;
-            column-gap: 5px;
-            row-gap: 80px;
-            opacity: 1;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-            position: relative;
-        }
-        
-        button {
-            background-color: transparent;
-            color: white;
-            background-color: black;
-            width: 120px;
-            font-size: 20px;
-            border-radius: 10%;
-            font-family: 'Darumadrop One', cursive;
-            /* border: 2px solid red; */
-        }
-        
-        .div1 button {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-        }
-        
-        button:hover {
-            cursor: pointer;
-            background-color: red;
-            width: 130px;
-            font-size: 25px;
-            transition: 400ms;
-        }
-        
-        .div1:hover {
-            opacity: 0.8;
-        }
-        
-        #imgdiv1 {
-            background-image: url("https://internationalyouthclub.org/wp-content/uploads/2021/10/Untitled-design-1.jpg");
-            background-size: cover;
-            background-position: center;
-        }
-        
-        #imgdiv2 {
-            background-image: url("https://internationalyouthclub.org/wp-content/uploads/2021/10/dedwf.jpg");
-            background-size: cover;
-            background-position: center;
-        }
-        
-        #imgdiv3 {
-            background-image: url("https://internationalyouthclub.org/wp-content/uploads/2021/10/fadasfwef.jpg");
-            background-size: cover;
-            background-position: center;
-        }
-        
-        #imgdiv4 {
-            background-image: url("https://internationalyouthclub.org/wp-content/uploads/2021/10/f4ffwf.jpg");
-            background-size: cover;
-            background-position: center;
-        }
-        
-        #imgdiv5 {
-            background-image: url("https://internationalyouthclub.org/wp-content/uploads/2021/10/fsdvbcszce.jpg");
-            background-size: cover;
-            background-position: center;
-        }
-        
-        #imgdiv6 {
-            background-image: url("	https://internationalyouthclub.org/wp-content/uploads/2021/10/wefsfregrge.jpg");
-            background-size: cover;
-            background-position: center;
-        }
-        
-        #imgdiv7 {
-            background-image: url("https://internationalyouthclub.org/wp-content/uploads/2021/10/7.jpg");
-            background-size: cover;
-            background-position: center;
-        }
-        
-        #imgdiv8 {
-            background-image: url("https://internationalyouthclub.org/wp-content/uploads/2021/10/8.jpg");
-            background-size: cover;
-            background-position: center;
-        }
-        
-        #imgdiv9 {
-            background-image: url("	https://internationalyouthclub.org/wp-content/uploads/2021/10/Untitled-designyju6yhtgf.jpg");
-            background-size: cover;
-            background-position: center;
-        }
-        
-        h2 {
-            color: white;
-            font-size: 50px;
-            text-align: center;
-            font-family: 'Darumadrop One', cursive;
-        }
-        
-        .box2 {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 100px;
-            width: 100%;
-        }
-        
-        .logo>img {
-            width: 300px;
-        }
-        
-        .logo>p {
-            font-size: 20px;
-            color: black;
-        }
-        
-        .destination {
-            font-size: 20px;
-            /* border: 2px solid black; */
-        }
-        
-        li>a {
-            text-decoration: none;
-            color: black;
-        }
-        
-        .pay>img {
-            /* margin-top: 50px; */
-            width: 200px;
-            margin-right: 20px;
-        }
-        
-        .pay>p {
-            padding-bottom: 30px;
-            font-size: 20px;
-        }
-        
-        .last {
-            padding-bottom: 20px;
-            text-align: center;
-            font-size: 20px;
-        }
-        
+
+        /* Navbar Styles */
         .topColor {
             background-color: #fff;
             color: #000;
             box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            padding: 15px 0;
+            transition: var(--transition);
         }
-        
+
         .topColor a {
             color: #292828;
         }
-        
-        .nav-item:hover {
-            border-bottom: 2px solid #f4a424;
+
+        .nav-item {
+            margin-left: 30px;
+            position: relative;
         }
-        
-        .nav-link:focus,
-        .nav-link:hover {
-            color: #242222;
+
+        .nav-item .nav-link {
+            font-weight: 500;
+            transition: var(--transition);
         }
-        
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
+
+        .nav-item .nav-link:hover {
+            color: var(--primary-color);
         }
-        
-        #content {
-            margin: 50px;
+
+        .nav-item:hover::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+        }
+
+        .reg-btn {
+            background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 25px;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(227, 123, 33, 0.3);
+            color: white;
+        }
+
+        .reg-btn:hover {
+            background: linear-gradient(to right, var(--primary-dark), var(--primary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(227, 123, 33, 0.4);
+            color: white;
+        }
+
+        /* Hero Section */
+        .services-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            margin-top: 76px;
+        }
+
+        .services-hero-content {
             text-align: center;
+            color: white;
+            width: 100%;
         }
-        
-        .form-container {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60%;
-            height: 70%;
-            /* max-width: 400px; */
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background-color: #f4a424;
-            ;
-            z-index: 9999;
-            display: none;
+
+        .services-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: 'Tilt Prism', cursive;
+        }
+
+        .services-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Services Grid */
+        .services-container {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            font-family: 'Tilt Prism', cursive;
+        }
+
+        .section-title p {
+            color: var(--gray-color);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            height: 100%;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));
             opacity: 0;
-            transition: opacity 2s ease-in-out;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
         }
-        
-        .form-container.show {
-            display: block;
+
+        .service-card:hover .service-overlay {
             opacity: 1;
         }
-        
-        .form-container h2 {
-            margin-top: 0;
+
+        .service-overlay i {
+            animation: iconPulse 2s ease-in-out infinite;
         }
-        
-        .form-container p {
-            text-align: center;
+
+        @keyframes iconPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            font-family: 'Darumadrop One', cursive;
+        }
+
+        .service-content p {
+            color: var(--gray-color);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .service-features {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .feature i {
+            margin-right: 5px;
+        }
+
+        .service-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .book-btn {
+            background: linear-gradient(to right, var(--primary-color), var(--primary-light));
             color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(227, 123, 33, 0.3);
         }
-        
-        .form-container label {
+
+        .book-btn:hover {
+            background: linear-gradient(to right, var(--primary-dark), var(--primary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(227, 123, 33, 0.4);
+        }
+
+        /* Booking Form */
+        .form-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .form-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            position: relative;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .form-overlay.active .form-container {
+            transform: translateY(0);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #777;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-button:hover {
+            color: #ff4757;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: var(--dark-color);
+            margin-bottom: 25px;
+            font-size: 28px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .form-container h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
             display: block;
             margin-bottom: 8px;
-            font-weight: bold;
+            font-weight: 600;
+            color: #444;
+            font-size: 15px;
         }
-        
-        .form-container input[type=text] {
-            width: 100%;
-            padding: 12px 20px;
-            margin-bottom: 12px;
-            box-sizing: border-box;
+
+        .input-container {
+            position: relative;
         }
-        
-        .form-container input[type=number] {
+
+        .form-group input, .form-group select {
             width: 100%;
-            padding: 12px 20px;
-            margin-bottom: 12px;
-            box-sizing: border-box;
-        }
-        
-        .form-container input[type=email] {
-            width: 100%;
-            padding: 12px 20px;
-            margin-bottom: 12px;
-            box-sizing: border-box;
-        }
-        
-        .form-container input[type=submit] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 2px solid #e1e5ee;
+            border-radius: 10px;
             font-size: 16px;
-            border-radius: 4px;
+            transition: var(--transition);
+            background-color: #f8f9fa;
         }
-        
-        .form-container .close-button {
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(227, 123, 33, 0.1);
+        }
+
+        .input-icon {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
             font-size: 18px;
-            cursor: pointer;
         }
-        
-        @media only screen and (max-width: 900px) {
-            .box1 {
-                display: grid;
-                grid-template-columns: repeat(1, 1fr);
-                /* align-items: center; */
-                /* row-gap: 50px; */
-                gap: 30px;
-                place-items: center;
-                margin-top: 120px;
-                width: 100%;
+
+        .form-message {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 10px;
+            color: #d63031;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-message i {
+            margin-right: 8px;
+            color: #e84393;
+        }
+
+        .submit-btn {
+            background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(37, 117, 252, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(37, 117, 252, 0.5);
+        }
+
+        .submit-btn:active {
+            transform: translateY(1px);
+        }
+
+        .submit-btn i {
+            margin-left: 8px;
+            font-size: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            padding: 60px 0 20px;
+        }
+
+        footer h5 {
+            font-weight: 700;
+            font-family: 'Tilt Prism', cursive;
+            color: #ffffff;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+
+        footer li {
+            margin-bottom: 12px;
+        }
+
+        footer li a {
+            font-family: 'Montserrat', sans-serif;
+            color: #b0b0b0;
+            transition: var(--transition);
+            padding: 5px 0 !important;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        footer li a:hover {
+            color: var(--primary-color);
+            padding-left: 5px !important;
+        }
+
+        footer p {
+            font-family: 'Montserrat', sans-serif;
+            color: #c0c0c0;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+            filter: brightness(1.2);
+        }
+
+        .social-links {
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 42px;
+            margin-right: 12px;
+            color: #ffffff;
+            transition: var(--transition);
+            font-size: 16px;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(227, 123, 33, 0.4);
+        }
+
+        .border-top {
+            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+        }
+
+        .footer-bottom p,
+        .footer-bottom a {
+            color: #9a9a9a;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
-            .div1 {
+        }
+
+        @media (max-width: 768px) {
+            .services-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .services-hero {
                 height: 300px;
-                width: 90%;
-                /* margin-left: -5px; */
-                /* margin-right: 0px; */
-                background-color: aqua;
-                column-gap: 5px;
-                row-gap: 80px;
-                opacity: 1;
-                box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-                position: relative;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .services-container {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .services-hero p {
+                font-size: 1rem;
+            }
+            
+            .form-container {
+                padding: 20px;
             }
         }
     </style>
-
 </head>
 
 <body>
     <!--*******************************  navbar *******************-->
-
     <nav class="navbar navbar-expand-lg fixed-top topColor" id="navBar">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="image/logo-no-background.png" alt="" class="logo">
+                <img src="image/logo-no-background.png" alt="BDTrip" class="logo" style="width: 200px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse float-xl-end" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -336,232 +586,465 @@
                         <a class="nav-link" href="service.html">Services</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="my-bookings.html">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="blog.html">Blogs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About Us</a>
                     </li>
-
-
-
                 </ul>
 
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="userLoginReg/login.html" id="logdiv">Login</a>
-                        <!-- <a class="nav-link" href="userLoginReg/login.html">Logout</a> -->
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-primary reg-btn" href="userLoginReg/registration.html" id="registerDiv"></a>
+                        <a class="btn btn-primary reg-btn" href="userLoginReg/registration.html" id="registerDiv">Register</a>
                     </li>
                 </ul>
-
             </div>
         </div>
     </nav>
-
-
     <!--*******************************  navbarEnd *******************-->
 
-    <div class="box1" id="un">
-        <div class="div1" id="imgdiv1">
-
-            <h2>Mountain Biking</h2>
-            <button id="book-now-button">Book Now</button>
-        </div>
-
-        <div class="div1" id="imgdiv2">
-            <h2>River Rafting</h2>
-            <button id="book-now-button1">Book Now</button>
-        </div>
-
-        <div class="div1" id="imgdiv3">
-            <h2>Motor Biking</h2>
-            <button>Book Now</button>
-        </div>
-
-
-        <div class="div1" id="imgdiv4">
-            <h2>Scuba Diving</h2>
-            <button>Book Now</button>
-        </div>
-
-        <div class="div1" id="imgdiv5">
-            <h2>Tracking</h2>
-            <button>Book Now</button>
-        </div>
-
-        <div class="div1" id="imgdiv6">
-            <h2>Paragliding</h2>
-            <button>Book Now</button>
-        </div>
-
-
-        <div class="div1" id="imgdiv7">
-            <h2>Camping</h2>
-            <button>Book Now</button>
-        </div>
-
-        <div class="div1" id="imgdiv8">
-            <h2>Bungee Jumping</h2>
-            <button>Book Now</button>
-        </div>
-
-        <div class="div1" id="imgdiv9">
-            <h2>Water Activities</h2>
-            <button>Book Now</button>
-        </div>
-    </div>
-
-    <div id="overlay" class="form-container">
-        <span class="close-button">&times;</span>
-        <h2>Booking Form</h2>
-        <form id="booking-form">
-            <label for="Number">Number of People:</label>
-            <input type="number" id="name" name="Number" required>
-
-            <label for="price">Conatact Number:</label>
-            <input type="text" id="price" name="price" required>
-
-
-            <label for="Email">Email:</label>
-            <input type="email" id="location" name="Email" required>
-
-            <p>We Contact You Soon &#128525;</p>
-
-            <input type="submit" value="Submit">
-        </form>
-    </div>
-
-    <footer class="py-5">
+    <!-- Services Hero Section -->
+    <section class="services-hero">
         <div class="container">
-            <div class="row">
+            <div class="services-hero-content">
+                <h1>Our Adventure Services</h1>
+                <p>Experience the thrill of Bangladesh's most exciting adventures with our expertly guided tours and activities.</p>
+            </div>
+        </div>
+    </section>
 
-                <div class="col-md-4  mb-3">
-
-                    <img src="image/logo-no-background.png" alt="" class="logo">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur inventore earum hic expedita voluptates nulla eius illum quo iure minima.</p>
-
-                </div>
-                <div class="col-6 col-md-2 mb-3">
-                    <h5>ABOUT</h5>
-                    <ul class="nav flex-column">
-                        <li class=" mb-2"><a href="#" class="nav-link p-0 text-muted">About Us</a></li>
-                        <li class=" mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                        <li class=" mb-2"><a href="#" class="nav-link p-0 text-muted">News & Blogs</a></li>
-
-                    </ul>
-                </div>
-
-                <div class="col-6 col-md-2 mb-3">
-                    <h5>MOVEMENT</h5>
-                    <ul class="nav flex-column">
-                        <li class=" mb-2"><a href="#" class="nav-link p-0 text-muted">What Heritage Bangladesh</a></li>
-                        <li class=" mb-2"><a href="#" class="nav-link p-0 text-muted">Support Us</a></li>
-
-                    </ul>
-                </div>
-
-                <div class="col-6 col-md-2 mb-3">
-                    <h5>COMPANY</h5>
-                    <ul class="nav flex-column">
-                        <li class=" mb-2"><a href="#" class="nav-link p-0 text-muted">Why Heritage Bangladesh</a></li>
-                        <li class=" mb-2"><a href="#" class="nav-link p-0 text-muted">Capital</a></li>
-                        <li class=" mb-2"><a href="#" class="nav-link p-0 text-muted">Security</a></li>
-
-                    </ul>
-                </div>
-
-
-
-                <div class="col-6 col-md-2 mb-3">
-                    <h5>SUPPORT</h5>
-                    <ul class="nav flex-column">
-                        <li class=" mb-2"><a href="#" class="nav-link p-0 text-muted">FAQ</a></li>
-                        <li class=" mb-2"><a href="#" class="nav-link p-0 text-muted">Support Center</a></li>
-                        <li class=" mb-2"><a href="#" class="nav-link p-0 text-muted">Contact Us</a></li>
-
-                    </ul>
-                </div>
-
-
+    <!-- Services Grid -->
+    <section class="services-container">
+        <div class="container">
+            <div class="section-title">
+                <h2>Choose Your Adventure</h2>
+                <p>From mountain biking to scuba diving, we offer a wide range of thrilling activities for all adventure enthusiasts.</p>
             </div>
 
-
-            <div class="row">
-
-                <div class="col-md-12 ">
-                    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-                        <p>© 2023 Heritage Bangladesh, All rights reserved.</p>
-                        <p>Terms & Agreements &nbsp;&nbsp; Privacy & Policy</p>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1571068316343-3b680036b556?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                        <div class="service-overlay">
+                            <i class="fas fa-biking" style="font-size: 3rem; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Mountain Biking</h3>
+                        <p>Explore the rugged terrains of Bangladesh's hill tracts with our guided mountain biking tours.</p>
+                        <div class="service-features">
+                            <div class="feature">
+                                <i class="fas fa-clock"></i> 4-6 hours
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-user-friends"></i> 2-10 people
+                            </div>
+                        </div>
+                        <div class="service-price">From ৳ 2,500 / person</div>
+                        <button class="book-btn" data-service="Mountain Biking">Book Now</button>
                     </div>
                 </div>
 
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1599901869375-1adabf7c5435?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                        <div class="service-overlay">
+                            <i class="fas fa-water" style="font-size: 3rem; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>River Rafting</h3>
+                        <p>Experience the thrill of white water rafting in the pristine rivers of Bangladesh.</p>
+                        <div class="service-features">
+                            <div class="feature">
+                                <i class="fas fa-clock"></i> 3-5 hours
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-user-friends"></i> 4-8 people
+                            </div>
+                        </div>
+                        <div class="service-price">From ৳ 3,200 / person</div>
+                        <button class="book-btn" data-service="River Rafting">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1575380579124-127294b1676f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                        <div class="service-overlay">
+                            <i class="fas fa-motorcycle" style="font-size: 3rem; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Motor Biking</h3>
+                        <p>Ride through scenic routes and challenging trails with our motor biking adventures.</p>
+                        <div class="service-features">
+                            <div class="feature">
+                                <i class="fas fa-clock"></i> 6-8 hours
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-user-friends"></i> 1-5 people
+                            </div>
+                        </div>
+                        <div class="service-price">From ৳ 4,500 / person</div>
+                        <button class="book-btn" data-service="Motor Biking">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                        <div class="service-overlay">
+                            <i class="fas fa-swimming-pool" style="font-size: 3rem; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Scuba Diving</h3>
+                        <p>Discover the underwater wonders of the Bay of Bengal with our certified diving instructors.</p>
+                        <div class="service-features">
+                            <div class="feature">
+                                <i class="fas fa-clock"></i> 2-4 hours
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-user-friends"></i> 2-6 people
+                            </div>
+                        </div>
+                        <div class="service-price">From ৳ 6,500 / person</div>
+                        <button class="book-btn" data-service="Scuba Diving">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                        <div class="service-overlay">
+                            <i class="fas fa-hiking" style="font-size: 3rem; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Trekking</h3>
+                        <p>Explore the natural beauty of Bangladesh's forests and hills with our guided trekking tours.</p>
+                        <div class="service-features">
+                            <div class="feature">
+                                <i class="fas fa-clock"></i> 1-3 days
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-user-friends"></i> 4-12 people
+                            </div>
+                        </div>
+                        <div class="service-price">From ৳ 3,800 / person</div>
+                        <button class="book-btn" data-service="Trekking">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1065&q=80');">
+                        <div class="service-overlay">
+                            <i class="fas fa-parachute-box" style="font-size: 3rem; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Paragliding</h3>
+                        <p>Soar above breathtaking landscapes with our safe and thrilling paragliding experiences.</p>
+                        <div class="service-features">
+                            <div class="feature">
+                                <i class="fas fa-clock"></i> 2-3 hours
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-user-friends"></i> 1-2 people
+                            </div>
+                        </div>
+                        <div class="service-price">From ৳ 5,500 / person</div>
+                        <button class="book-btn" data-service="Paragliding">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Overlay -->
+    <div class="form-overlay" id="bookingOverlay">
+        <div class="form-container">
+            <span class="close-button">&times;</span>
+            <h2>Book Your Adventure</h2>
+            <form id="booking-form">
+                <div class="form-group">
+                    <label for="service">Selected Service</label>
+                    <input type="text" id="service" name="service" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label for="people">Number of People</label>
+                    <div class="input-container">
+                        <i class="fas fa-users input-icon"></i>
+                        <input type="number" id="people" name="people" min="1" max="20" required placeholder="How many people?">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Contact Number</label>
+                    <div class="input-container">
+                        <i class="fas fa-phone input-icon"></i>
+                        <input type="tel" id="phone" name="phone" required placeholder="Your phone number">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-container">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input type="email" id="email" name="email" required placeholder="Your email address">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Preferred Date</label>
+                    <div class="input-container">
+                        <i class="fas fa-calendar input-icon"></i>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                </div>
+
+                <div class="form-message">
+                    <i class="fas fa-heart"></i>We'll Contact You Soon!
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Submit Booking <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="image/logo-no-background.png" alt="BDTrip" class="footer-logo" style="width: 200px;">
+                    <p>Discover the rich cultural heritage and natural beauty of Bangladesh with our expertly curated tours and travel experiences.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-4">
+                    <h5>ABOUT</h5>
+                    <ul class="nav flex-column">
+                        <li><a href="about.html" class="nav-link p-0">About Us</a></li>
+                        <li><a href="service.html" class="nav-link p-0">Services</a></li>
+                        <li><a href="blog.html" class="nav-link p-0">News & Blogs</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-2 mb-4">
+                    <h5>DESTINATIONS</h5>
+                    <ul class="nav flex-column">
+                        <li><a href="discover.html" class="nav-link p-0">Popular Places</a></li>
+                        <li><a href="discover.html" class="nav-link p-0">Cultural Sites</a></li>
+                        <li><a href="discover.html" class="nav-link p-0">Natural Wonders</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-2 mb-4">
+                    <h5>SUPPORT</h5>
+                    <ul class="nav flex-column">
+                        <li><a href="#" class="nav-link p-0">FAQ</a></li>
+                        <li><a href="#" class="nav-link p-0">Support Center</a></li>
+                        <li><a href="#" class="nav-link p-0">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-2 mb-4">
+                    <h5>CONTACT</h5>
+                    <ul class="nav flex-column">
+                        <li><a href="#" class="nav-link p-0"><i class="fas fa-map-marker-alt me-2"></i>Dhaka, Bangladesh</a></li>
+                        <li><a href="tel:+8801234567890" class="nav-link p-0"><i class="fas fa-phone me-2"></i>+880 1234-567890</a></li>
+                        <li><a href="mailto:info@bdtrip.com" class="nav-link p-0"><i class="fas fa-envelope me-2"></i>info@bdtrip.com</a></li>
+                    </ul>
+                </div>
             </div>
 
-
+            <div class="row footer-bottom">
+                <div class="col-md-12">
+                    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center py-4 border-top">
+                        <p class="mb-3 mb-sm-0">© 2025 BDTrip. All rights reserved.</p>
+                        <div>
+                            <a href="#" class="me-3">Terms & Agreements</a>
+                            <a href="#">Privacy & Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </footer>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js">
-    </script>
+    <script src="config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="userLoginReg/logstatus.js"></script>
     <script>
-        var overlay = document.getElementById("overlay");
-        var bookNowButton = document.querySelectorAll("#un button")
-        var bookingForm = document.getElementById("booking-form");
-        var closeButton = document.querySelector(".close-button");
-
-
-        bookNowButton.forEach(function(button) {
-            // Do something with each button
-            button.addEventListener("click", function() {
-
-
-                overlay.classList.add("show");
+        // Booking form functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const bookButtons = document.querySelectorAll('.book-btn');
+            const bookingOverlay = document.getElementById('bookingOverlay');
+            const closeButton = document.querySelector('.close-button');
+            const bookingForm = document.getElementById('booking-form');
+            const serviceInput = document.getElementById('service');
+            
+            // Open booking form when a book button is clicked
+            bookButtons.forEach(button => {
+                button.addEventListener('click', async function() {
+                    // Check if user is logged in
+                    const loginstatus = JSON.parse(localStorage.getItem("logStatus"));
+                    
+                    if (!loginstatus || loginstatus !== true) {
+                        // User is not logged in
+                        alert('Please login first to book a service!\n\nYou will be redirected to the login page.');
+                        window.location.href = 'userLoginReg/login.html';
+                        return;
+                    }
+                    
+                    // User is logged in, proceed with booking
+                    const serviceName = this.getAttribute('data-service');
+                    serviceInput.value = serviceName;
+                    
+                    // Get username and fetch user data to auto-fill email
+                    const username = localStorage.getItem("username");
+                    if (username) {
+                        try {
+                            const response = await fetch(`${API_BASE_URL}/users`);
+                            const users = await response.json();
+                            // Match by 'name' field since that's what's stored in db.json
+                            const currentUser = users.find(user => user.name === username);
+                            
+                            if (currentUser && currentUser.email) {
+                                document.getElementById('email').value = currentUser.email;
+                            }
+                        } catch (error) {
+                            console.error('Error fetching user data:', error);
+                        }
+                    }
+                    
+                    bookingOverlay.classList.add('active');
+                });
             });
-
-        });
-
-
-
-
-
-
-
-        // price.value=300*name
-
-        bookingForm.addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            // Get form values
-            var name = document.getElementById("name").value;
-
-            var price = document.getElementById("price").value;
-            var location = document.getElementById("location").value
-
-            // location.value="Manali"
-            // You can perform further validation on the form values here
-
-            // Simulate booking process
-            alert("Booking successful!\n\nNumber of People: " + name + "\nEmail: " + location + "\nContact Number: " + price);
-
-            // Reset the form
-            bookingForm.reset();
-
-            // Hide the form overlay
-            overlay.classList.remove("show");
-        });
-
-        closeButton.addEventListener("click", function() {
-            overlay.classList.remove("show");
+            
+            // Close booking form
+            closeButton.addEventListener('click', function() {
+                bookingOverlay.classList.remove('active');
+            });
+            
+            // Close booking form when clicking outside
+            bookingOverlay.addEventListener('click', function(e) {
+                if (e.target === bookingOverlay) {
+                    bookingOverlay.classList.remove('active');
+                }
+            });
+            
+            // Handle form submission
+            bookingForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const service = serviceInput.value;
+                const people = document.getElementById('people').value;
+                const phone = document.getElementById('phone').value;
+                const email = document.getElementById('email').value;
+                const date = document.getElementById('date').value;
+                const username = localStorage.getItem("username");
+                
+                // Simple validation
+                if(service && people && phone && email && date) {
+                    try {
+                        // Check for duplicate booking on same date
+                        const checkResponse = await fetch(`${API_BASE_URL}/serviceBookings`);
+                        const existingBookings = await checkResponse.json();
+                        
+                        // Check if user already has a booking for the same service and date
+                        const duplicateBooking = existingBookings.find(booking => 
+                            booking.email === email && 
+                            booking.service === service && 
+                            booking.date === date &&
+                            booking.status !== 'Cancelled'
+                        );
+                        
+                        if (duplicateBooking) {
+                            alert(`You already have a booking for ${service} on ${date}!\n\nPlease choose a different date or cancel your existing booking.`);
+                            return;
+                        }
+                        
+                        // Create booking object
+                        const bookingData = {
+                            service: service,
+                            people: people,
+                            phone: phone,
+                            email: email,
+                            date: date,
+                            username: username,
+                            bookingDate: new Date().toISOString(),
+                            status: 'Pending'
+                        };
+                        
+                        // Save to database
+                        const response = await fetch(`${API_BASE_URL}/serviceBookings`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(bookingData)
+                        });
+                        
+                        if(response.ok) {
+                            const savedBooking = await response.json();
+                            alert(`Thank you for your booking!\n\nBooking ID: ${savedBooking.id}\nService: ${service}\nPeople: ${people}\nPhone: ${phone}\nEmail: ${email}\nDate: ${date}\n\nYour booking has been saved successfully!\nWe will contact you shortly to confirm.`);
+                            
+                            // Reset form
+                            bookingForm.reset();
+                            bookingOverlay.classList.remove('active');
+                        } else {
+                            throw new Error('Failed to save booking');
+                        }
+                    } catch(error) {
+                        console.error('Error saving booking:', error);
+                        alert('Sorry, there was an error saving your booking. Please try again or contact us directly.');
+                    }
+                } else {
+                    alert('Please fill in all fields');
+                }
+            });
+            
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('date').setAttribute('min', today);
+            
+            // Update book buttons based on login status
+            function updateBookButtons() {
+                const loginstatus = JSON.parse(localStorage.getItem("logStatus"));
+                const bookButtons = document.querySelectorAll('.book-btn');
+                
+                if (!loginstatus || loginstatus !== true) {
+                    bookButtons.forEach(button => {
+                        const originalText = button.textContent;
+                        if (!originalText.includes('Login Required')) {
+                            button.innerHTML = '<i class="fas fa-lock me-2"></i>Login to Book';
+                            button.style.background = 'linear-gradient(to right, #6c757d, #5a6268)';
+                        }
+                    });
+                }
+            }
+            
+            // Call on page load
+            updateBookButtons();
         });
     </script>
-
 </body>
-
-
-
 </html>

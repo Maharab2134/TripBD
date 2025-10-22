@@ -1,3 +1,6 @@
+// API Configuration
+const API_BASE_URL = "http://localhost:3000";
+
 const username = document.getElementById("user_name");
 const password = document.getElementById("passwords");
 const loginBtn = document.getElementById("login--btn");
@@ -30,7 +33,7 @@ loginBtn.addEventListener("click", () => {
 });
 
 function login(credentials) {
-  fetch("https://sarthi-api.onrender.com/admin", {
+  fetch(`${API_BASE_URL}/admin`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

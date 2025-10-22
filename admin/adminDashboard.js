@@ -1,3 +1,6 @@
+// API Configuration
+const API_BASE_URL = "http://localhost:3000";
+
 const sideMenu = document.querySelector("aside");
 const menuBtn = document.querySelector("#menu-btn");
 const closeBtn = document.querySelector("#close-btn");
@@ -18,41 +21,78 @@ themeToggler.addEventListener("click", () => {
   themeToggler.querySelector("span:nth-child(2)").classList.toggle("active");
 });
 
-fetch(`https://sarthi-api.onrender.com/bookPlaces`)
+// Fetch destinations data
+fetch(`${API_BASE_URL}/destinations`)
   .then((res) => {
     return res.json();
   })
   .then((data) => {
     console.log(data);
-    let total = 0;
-    let price = 0;
-    let adminDataAppend = document.getElementById("adminSiteBoxId");
-    let x = "";
-    data.forEach((visitor) => {
-      total += visitor.price * 10;
-      let income = (visitor.price * 10 * 25) / 100;
-      price += income;
-      x += `
-      <div class="card">
-        <div class="card__image"> 
-        <img  src="${visitor.image}" alt="Image Error" />
-        </div>
-        <div class="card__infos">
-        <h1 id="card__name">${visitor.name}</h1>
-        <h2 id="card__location">${visitor.location}</h2>
-        <p id="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-      </div>
-   `;
-      adminDataAppend.innerHTML = x;
+
+    // Calculate statistics
+    let totalDestinations = data.length;
+    let totalRevenue = 0;
+    let totalProfit = 0;
+
+    data.forEach((destination) => {
+      let revenue = Number(destination.price) * 10;
+      let profit = (revenue * 25) / 100;
+      totalRevenue += revenue;
+      totalProfit += profit;
     });
 
-    let dealsData = document.getElementById("total-deals");
-    dealsData.innerText = data.length;
-    let saleData = document.getElementById("total-sale");
-    saleData.innerText = `৳ ${price.toLocaleString()}`;
-    let incomeData = document.getElementById("income");
-    incomeData.innerText = `৳ ${total.toLocaleString()}`;
+    // Update metrics
+    document.getElementById("total-deals").innerText = totalDestinations;
+    document.getElementById(
+      "total-sale"
+    ).innerText = `৳ ${totalProfit.toLocaleString()}`;
+    document.getElementById(
+      "income"
+    ).innerText = `৳ ${totalRevenue.toLocaleString()}`;
+
+    // Display latest 6 destinations
+    let adminDataAppend = document.getElementById("adminSiteBoxId");
+    let latestDestinations = data.slice(-6).reverse(); // Get last 6 and reverse
+
+    let cardsHTML = "";
+    latestDestinations.forEach((destination) => {
+      cardsHTML += `
+        <div class="destination-card">
+          <div class="destination-image"> 
+            <img src="${destination.image}" alt="${destination.name}" />
+            <div class="destination-overlay">
+              <span class="destination-price">৳${destination.price}</span>
+            </div>
+          </div>
+          <div class="destination-info">
+            <h3 class="destination-name">${destination.name}</h3>
+            <p class="destination-location">
+              <span class="material-icons">location_on</span>
+              ${destination.location}
+            </p>
+            <div class="destination-meta">
+              <div class="rating">
+                <span class="material-icons">star</span>
+                <span>${destination.rating}%</span>
+              </div>
+              <a href="admin.html" class="edit-btn">
+                <span class="material-icons">edit</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+
+    adminDataAppend.innerHTML = cardsHTML;
+  })
+  .catch((error) => {
+    console.error("Error fetching destinations:", error);
+    document.getElementById("adminSiteBoxId").innerHTML = `
+      <div style="grid-column: 1/-1; text-align: center; padding: 2rem;">
+        <p style="color: var(--color-danger);">Failed to load destinations. Please try again.</p>
+      </div>
+    `;
   });
 
 let logOut = document.getElementById("logout");
