@@ -925,62 +925,7 @@
             <h1 class="fw-bolder wow animate__animated animate__fadeInDown">FIND <span>POPULAR</span></h1>
             <h1 class="fw-bolder wow animate__animated animate__fadeInDown">DESTINATIONS</h1>
             <div class="owl-carousel owl-theme wow animate__animated animate__fadeIn" id="desti">
-
-                <!-- Card 1: Sundarbans -->
-                <div class="item card popCard" data-website-url="https://mangrovehaven.com/" data-discover-url="discover.html">
-                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/a5/8b/d0/getlstd-property-photo.jpg?w=900&h=500&s=1" alt="Sundarbans">
-                    <h3>Sundarbans</h3>
-                    <p>Mangrove Forest</p>
-                    <div class="price-box">
-                        <p><span>৳ 5,200</span>/person</p>
-                        <button class="btn btn-primary bookBtn view-more-btn">View More</button>
-                    </div>
-                </div>
-
-                <!-- Card 2: Cox's Bazar -->
-                <div class="item card popCard" data-website-url="https://www.visitcoxsbazar.com/" data-discover-url="discover.html">
-                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/4d/46/b0/cox-s-bazar-sea-beach.jpg?w=900&h=500&s=1" alt="Cox's Bazar">
-                    <h3>Cox's Bazar</h3>
-                    <p>Longest Sea Beach</p>
-                    <div class="price-box">
-                        <p><span>৳ 3,800</span>/person</p>
-                        <button class="btn btn-primary bookBtn view-more-btn">View More</button>
-                    </div>
-                </div>
-
-                <!-- Card 3: Sajek Valley -->
-                <div class="item card popCard" data-website-url="https://sajekvalley.com/" data-discover-url="discover.html">
-                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/05/b9/6d/20171209-113147-largejpg.jpg?w=900&h=500&s=1" alt="Sajek Valley">
-                    <h3>Sajek Valley</h3>
-                    <p>Queen of Hills</p>
-                    <div class="price-box">
-                        <p><span>৳ 6,500</span>/person</p>
-                        <button class="btn btn-primary bookBtn view-more-btn">View More</button>
-                    </div>
-                </div>
-
-                <!-- Card 4: Saint Martin's Island -->
-                <div class="item card popCard" data-website-url="https://saintmartinisland.gov.bd/" data-discover-url="discover.html">
-                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/7c/be/19/st-martin-island.jpg?w=900&h=500&s=1" alt="Saint Martin's Island">
-                    <h3>Saint Martin's Island</h3>
-                    <p>Coral Island Paradise</p>
-                    <div class="price-box">
-                        <p><span>৳ 7,200</span>/person</p>
-                        <button class="btn btn-primary bookBtn view-more-btn">View More</button>
-                    </div>
-                </div>
-
-                <!-- Card 5: Srimangal -->
-                <div class="item card popCard" data-website-url="https://srimangal.com/" data-discover-url="discover.html">
-                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/01/27/5c/tea-garden.jpg?w=900&h=500&s=1" alt="Srimangal">
-                    <h3>Srimangal</h3>
-                    <p>Tea Capital of Bangladesh</p>
-                    <div class="price-box">
-                        <p><span>৳ 4,500</span>/person</p>
-                        <button class="btn btn-primary bookBtn view-more-btn">View More</button>
-                    </div>
-                </div>
-
+                <!-- Destinations will be loaded dynamically from database -->
             </div>
         </section>
     </div>
@@ -988,18 +933,68 @@
 
 <!-- Add this JavaScript at the end of your file -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Card click - go to external website
-    document.querySelectorAll('.popCard').forEach(card => {
-        card.addEventListener('click', function(e) {
-            // Don't trigger if View More button was clicked
-            if (!e.target.closest('.view-more-btn')) {
-                const websiteUrl = this.getAttribute('data-website-url');
-                window.open(websiteUrl, '_blank', 'noopener,noreferrer');
-            }
-        });
-    });
+// Define API Base URL
+const API_BASE_URL = 'http://localhost:3000';
 
+// Load popular destinations from database
+async function loadPopularDestinations() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/destinations`);
+        const destinations = await response.json();
+        
+        const destiCarousel = document.getElementById('desti');
+        destiCarousel.innerHTML = '';
+        
+        // Sort by rating and get top destinations
+        const popularDestinations = destinations
+            .sort((a, b) => b.rating - a.rating)
+            .slice(0, 10); // Get top 10 destinations
+        
+        popularDestinations.forEach(dest => {
+            const card = `
+                <div class="item card popCard" data-discover-url="discover.html">
+                    <img src="${dest.image}" alt="${dest.name}">
+                    <h3>${dest.name}</h3>
+                    <p>${dest.location}</p>
+                    <div class="price-box">
+                        <p><span>৳ ${dest.price}</span>/person</p>
+                        <button class="btn btn-primary bookBtn view-more-btn">View More</button>
+                    </div>
+                </div>
+            `;
+            destiCarousel.innerHTML += card;
+        });
+        
+        // Reinitialize owl carousel after loading data
+        if (typeof $ !== 'undefined' && $.fn.owlCarousel) {
+            $('#desti').owlCarousel('destroy');
+            $('#desti').owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: { items: 1 },
+                    600: { items: 2 },
+                    1000: { items: 3 }
+                }
+            });
+        }
+        
+        // Reinitialize event listeners
+        initializeCardListeners();
+        
+    } catch (error) {
+        console.error('Error loading destinations:', error);
+        document.getElementById('desti').innerHTML = '<p style="text-align: center; color: red;">Failed to load destinations. Please try again later.</p>';
+    }
+}
+
+// Initialize card event listeners
+function initializeCardListeners() {
     // View More button click - go to discover page
     document.querySelectorAll('.view-more-btn').forEach(button => {
         button.addEventListener('click', function(e) {
@@ -1046,6 +1041,11 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.borderColor = '';
         });
     });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Load destinations on page load
+    loadPopularDestinations();
 });
 </script>
 
@@ -1138,7 +1138,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
                 <div class="video-content">
-                    <h3>Explore Bangladesh</h3>
+                    <h3>Chittagong Beach</h3>
                 </div>
             </div>
             
@@ -1214,6 +1214,26 @@ document.addEventListener('DOMContentLoaded', function() {
                             playsinline
                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
                             <source src="video/5.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="video-content">
+                    <h3>Adventure Awaits</h3>
+                </div>
+            </div>
+
+             <!-- Video 6: Local Video -->
+            <div class="video-card wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
+                <div class="video-thumbnail" style="height: auto;">
+                    <div class="ratio ratio-16x9">
+                        <video 
+                            controls 
+                            autoplay 
+                            muted 
+                            loop 
+                            playsinline
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                            <source src="video/6.mp4" type="video/mp4">
                         </video>
                     </div>
                 </div>

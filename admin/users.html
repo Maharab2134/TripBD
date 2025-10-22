@@ -833,15 +833,23 @@
             event.preventDefault();
             
             const userId = document.getElementById('userId').value;
+            const newName = document.getElementById('userName').value;
             const userData = {
-                name: document.getElementById('userName').value,
+                name: newName,
                 email: document.getElementById('userEmail').value,
                 passward: document.getElementById('userPassword').value
             };
 
             try {
                 let response;
+                let oldName = null;
+                
                 if (userId) {
+                    // Get old username before updating
+                    const oldUserResponse = await fetch(`${API_BASE_URL}/users/${userId}`);
+                    const oldUser = await oldUserResponse.json();
+                    oldName = oldUser.name;
+                    
                     // Update existing user
                     response = await fetch(`${API_BASE_URL}/users/${userId}`, {
                         method: 'PATCH',
@@ -850,6 +858,11 @@
                         },
                         body: JSON.stringify(userData)
                     });
+                    
+                    // If username changed, update all bookings
+                    if (response.ok && oldName !== newName) {
+                        await updateBookingsUsername(oldName, newName);
+                    }
                 } else {
                     // Add new user
                     userData.id = Math.random().toString(36).substr(2, 4);
@@ -872,6 +885,47 @@
             } catch (error) {
                 console.error('Error:', error);
                 alert('Error saving user');
+            }
+        }
+        
+        // Update username in all bookings
+        async function updateBookingsUsername(oldName, newName) {
+            try {
+                // Update destination bookings
+                const destResponse = await fetch(`${API_BASE_URL}/destinationBookings`);
+                const destBookings = await destResponse.json();
+                
+                for (const booking of destBookings) {
+                    if (booking.username === oldName) {
+                        await fetch(`${API_BASE_URL}/destinationBookings/${booking.id}`, {
+                            method: 'PATCH',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ username: newName })
+                        });
+                    }
+                }
+                
+                // Update service bookings
+                const serviceResponse = await fetch(`${API_BASE_URL}/serviceBookings`);
+                const serviceBookings = await serviceResponse.json();
+                
+                for (const booking of serviceBookings) {
+                    if (booking.username === oldName) {
+                        await fetch(`${API_BASE_URL}/serviceBookings/${booking.id}`, {
+                            method: 'PATCH',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ username: newName })
+                        });
+                    }
+                }
+                
+                console.log(`Updated all bookings from "${oldName}" to "${newName}"`);
+            } catch (error) {
+                console.error('Error updating bookings:', error);
             }
         }
 
