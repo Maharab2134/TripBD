@@ -3,22 +3,77 @@ const API_BASE_URL = "http://localhost:3000";
 
 let destination = JSON.parse(localStorage.getItem("destination")) || [];
 let conty = document.getElementById("conty");
-
-let imgdiv = document.createElement("div");
-
+              
 let paise = destination[0].price;
+
+// Update price display
+document.getElementById("priceDisplay").textContent =
+  Number(paise).toLocaleString();
+
+// Create modern destination card
+let destinationCard = document.createElement("div");
+
+let imageContainer = document.createElement("div");
+imageContainer.className = "destination-image-container";
 
 let backImage = document.createElement("img");
 backImage.setAttribute("src", destination[0].image);
+backImage.setAttribute("alt", destination[0].name);
+
+let overlay = document.createElement("div");
+overlay.className = "destination-overlay";
 
 let place = document.createElement("h1");
 place.innerText = destination[0].name;
 
 let position = document.createElement("h2");
-position.textContent = ` ${destination[0].location}`;
+position.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${destination[0].location}`;
 
-imgdiv.append(backImage, place, position);
-conty.append(imgdiv);
+overlay.append(place, position);
+imageContainer.append(backImage, overlay);
+
+// Create info section
+let infoSection = document.createElement("div");
+infoSection.className = "destination-info";
+
+let infoGrid = document.createElement("div");
+infoGrid.className = "info-grid";
+
+// Info items
+const infoItems = [
+  {
+    icon: "fa-star",
+    label: "Rating",
+    value: `${destination[0].rating || "N/A"}/100`,
+  },
+  {
+    icon: "fa-tag",
+    label: "Price",
+    value: `৳${Number(paise).toLocaleString()}`,
+  },
+  {
+    icon: "fa-globe",
+    label: "Location",
+    value: destination[0].location.split(",")[0],
+  },
+  { icon: "fa-plane", label: "Type", value: "International" },
+];
+
+infoItems.forEach((item) => {
+  let infoItem = document.createElement("div");
+  infoItem.className = "info-item";
+  infoItem.innerHTML = `
+    <i class="fas ${item.icon}"></i>
+    <h4>${item.label}</h4>
+    <p>${item.value}</p>
+  `;
+  infoGrid.appendChild(infoItem);
+});
+
+infoSection.appendChild(infoGrid);
+
+destinationCard.append(imageContainer, infoSection);
+conty.append(destinationCard);
 
 let from = document.getElementById("city");
 let startDate = document.getElementById("startDate");
