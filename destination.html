@@ -425,7 +425,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="service.html">Services</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="myBookingsNav" style="display:none;">
                         <a class="nav-link" href="my-bookings.html">My Bookings</a>
                     </li>
                     <li class="nav-item">
@@ -610,6 +610,19 @@
             bookBtn.innerHTML = '<i class="fas fa-lock"></i> Login to Book';
             bookBtn.style.backgroundColor = '#6c757d';
             bookBtn.style.cursor = 'pointer';
+        }
+    });
+</script>
+
+<script>
+    // Show or hide "My Bookings" nav item based on login status
+    document.addEventListener('DOMContentLoaded', function() {
+        try {
+            const loginstatus = JSON.parse(localStorage.getItem('logStatus'));
+            const myBookingsNav = document.getElementById('myBookingsNav');
+            if (myBookingsNav) myBookingsNav.style.display = (loginstatus === true) ? 'block' : 'none';
+        } catch (e) {
+            console.error('Error toggling My Bookings nav:', e);
         }
     });
 </script>

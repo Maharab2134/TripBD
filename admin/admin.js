@@ -106,6 +106,14 @@ function renderCards(users) {
     ).toLocaleString()}`;
     infoDiv.appendChild(price);
 
+    // Website link (if provided)
+    if (user.website) {
+      const websiteDiv = document.createElement("div");
+      websiteDiv.style.marginTop = "8px";
+      websiteDiv.innerHTML = `<a href="${user.website}" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary"><i class="fas fa-external-link-alt"></i> Visit Website</a>`;
+      infoDiv.appendChild(websiteDiv);
+    }
+
     // Actions
     const actionsDiv = document.createElement("div");
     actionsDiv.classList.add("destination-actions");
@@ -162,6 +170,7 @@ let destinationNameInput = document.getElementById("product-name");
 let destinationImgInput = document.getElementById("product-image");
 let destinationLocationInput = document.getElementById("product-brand");
 let destinationPriceInput = document.getElementById("product-price");
+let destinationWebsiteInput = document.getElementById("product-website");
 let destinationCreateBtn = document.getElementById("add-product");
 
 destinationCreateBtn.addEventListener("click", () => {
@@ -169,6 +178,9 @@ destinationCreateBtn.addEventListener("click", () => {
   let destinationImg = destinationImgInput.value;
   let destinationLocation = destinationLocationInput.value;
   let destinationPrice = destinationPriceInput.value;
+  let destinationWebsite = destinationWebsiteInput
+    ? destinationWebsiteInput.value
+    : "";
 
   // Validation
   if (
@@ -186,6 +198,7 @@ destinationCreateBtn.addEventListener("click", () => {
     image: destinationImg,
     location: destinationLocation,
     price: destinationPrice,
+    website: destinationWebsite,
   };
 
   console.log(newEmpObj);
@@ -220,6 +233,9 @@ let updateDestinationBrandInput = document.getElementById(
 let updateDestinationPriceInput = document.getElementById(
   "update-product-price"
 );
+let updateDestinationWebsiteInput = document.getElementById(
+  "update-product-website"
+);
 let updateDestinationCreateBtn = document.getElementById("update-product");
 
 function updateAllPopulateProduct(changeid) {
@@ -236,6 +252,8 @@ function updateAllPopulateProduct(changeid) {
       updateDestinationImgInput.value = data.image;
       updateDestinationBrandInput.value = data.location;
       updateDestinationPriceInput.value = data.price;
+      if (updateDestinationWebsiteInput)
+        updateDestinationWebsiteInput.value = data.website || "";
     })
     .catch((error) => {
       console.log(error);
@@ -250,6 +268,9 @@ updateDestinationCreateBtn.addEventListener("click", function (e) {
   let updateproductImg = updateDestinationImgInput.value;
   let updateproductBrand = updateDestinationBrandInput.value;
   let updateproductPrice = updateDestinationPriceInput.value;
+  let updateproductWebsite = updateDestinationWebsiteInput
+    ? updateDestinationWebsiteInput.value
+    : "";
 
   // Validation
   if (!updateDestinationId) {
@@ -273,6 +294,7 @@ updateDestinationCreateBtn.addEventListener("click", function (e) {
     image: updateproductImg,
     location: updateproductBrand,
     price: updateproductPrice,
+    website: updateproductWebsite,
   };
   let changeid = updateDestinationId;
   console.log(changeid);

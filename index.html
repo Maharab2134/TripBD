@@ -858,14 +858,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="service.html">Services</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="my-bookings.html">My Bookings</a>
-                    </li>
+                   
                     <li class="nav-item">
                         <a class="nav-link" href="blog.html">Blogs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item" id="myBookingsNav" style="display:none;">
+                        <a class="nav-link" href="my-bookings.html">My Bookings</a>
                     </li>
                 </ul>
 
@@ -877,9 +878,7 @@
                         <a class="btn btn-primary reg-btn" href="userLoginReg/registration.html"
                             id="registerDiv">Register</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login/adminlogin.html" id="logdiv" target="_blank">Admin Login</a>
-                    </li>
+                    <!-- Admin login intentionally hidden from normal users. Use the secret spot (bottom-right corner) to reveal/navigate. -->
                 </ul>
             </div>
         </div>
@@ -1511,6 +1510,57 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 
     <script src="userLoginReg/logstatus.js"></script>
+    <script>
+        // Show or hide "My Bookings" nav item based on login status
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                const loginstatus = JSON.parse(localStorage.getItem('logStatus'));
+                const myBookingsNav = document.getElementById('myBookingsNav');
+                if (myBookingsNav) {
+                    myBookingsNav.style.display = loginstatus === true ? 'block' : 'none';
+                }
+
+                // Also update the top-right login/register text if needed (in case logstatus.js wasn't run yet)
+                const logDivs = document.querySelectorAll('#logdiv');
+                const registerDiv = document.getElementById('registerDiv');
+                if (loginstatus === true) {
+                    // show 'My Bookings' and ensure Register shows Logout (logstatus.js already handles this on most pages)
+                    if (myBookingsNav) myBookingsNav.style.display = 'block';
+                } else {
+                    if (myBookingsNav) myBookingsNav.style.display = 'none';
+                }
+            } catch (e) {
+                console.error('Error toggling My Bookings nav:', e);
+            }
+        });
+    </script>
+        <!-- Invisible admin access hotspot (click 3 times quickly bottom-right) -->
+        <div id="secretAdminSpot" aria-hidden="true" style="position:fixed; right:8px; bottom:8px; width:32px; height:32px; opacity:0; z-index:9999; cursor:pointer;"></div>
+        <script>
+            // Triple-click the bottom-right corner to open admin login
+            (function() {
+                const spot = document.getElementById('secretAdminSpot');
+                if (!spot) return;
+                let clicks = 0;
+                let timer = null;
+                spot.addEventListener('click', function () {
+                    clicks++;
+                    if (timer) clearTimeout(timer);
+                    timer = setTimeout(() => { clicks = 0; }, 1500);
+                    if (clicks >= 3) {
+                        // navigate to admin login (opens in same tab)
+                        window.location.href = 'login/adminlogin.html';
+                    }
+                });
+                // Optional: also support long-press (press & hold for 1.5s)
+                let holdTimer = null;
+                spot.addEventListener('mousedown', function() {
+                    holdTimer = setTimeout(() => { window.location.href = 'login/adminlogin.html'; }, 1500);
+                });
+                ['mouseup','mouseleave'].forEach(evt => spot.addEventListener(evt, function(){ if (holdTimer) { clearTimeout(holdTimer); holdTimer = null; }}));
+            })();
+        </script>
+        <script src="admin-shortcut.js"></script>
 </body>
 
 </html>
